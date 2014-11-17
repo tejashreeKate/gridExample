@@ -10,9 +10,7 @@
  */
 angular
   .module('dragDropExampleApp', [
-    'ngResource',
     'ngRoute',
-    'ngTouch',
     'ngDraggable',
     'gridster',
     'ui.bootstrap'
