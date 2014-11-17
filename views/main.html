@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-md-10">
+      <h5>Drop Area</h5>
+        <div class="canvas" ng-drop="true" ng-drop-success="onDropComplete1($data,$event)">
+          <div ng-repeat="obj in droppedObjects1 track by $index" class="tile_parent" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess1($data,$event)">
+            <div class="tile" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess1($data,$event)">
+                {{obj.name+" "+$index}}
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <h5>Drag Item</h5>
+      <div class="drag-object" ng-repeat="obj in draggableObjects" ng-if="obj.allowClone !== false" draggable>
+          <div class="tile" ng-drag="true" ng-drag-data="obj">
+            {{obj.name}}
+          </div>
+      </div>
+    </div>
+</div>
