@@ -10,7 +10,9 @@
  */
 angular
   .module('dragDropExampleApp', [
+    'ngResource',
     'ngRoute',
+    'ngTouch',
     'ngDraggable',
     'gridster',
     'ui.bootstrap'
@@ -18,8 +20,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',

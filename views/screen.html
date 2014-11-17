@@ -1,10 +1,11 @@
-<div >
-<div class="grid_main" gridster="gridsterOptions">
+<div>
+<!-- 	<button class="btn btn-primary"><a href="#/about">Back</button>
+ --><div class="grid_main" gridster="gridsterOptions">
 	<ul>
 		<li gridster-item="widget" ng-repeat="widget in tiles">
 			<div class="box" ng-controller="CustomWidgetCtrl">
 				<div class="box-header">
-					<h3>{{ widget.name }}</h3>
+					<h6><b>{{ widget.name }}</b></h6>
 					<div class="box-header-btns pull-right">
 <!-- 						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
 						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>

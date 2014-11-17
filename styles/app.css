@@ -102,7 +102,6 @@ ul {
 }
 .box-header {
     background-color: #eee;
-    padding: 0 30px 0 10px;
     border-bottom: 1px solid #ccc;
     cursor: move;
     position: relative;
@@ -115,10 +114,8 @@ ul {
     padding: 10px;
 }
 .box-header-btns {
-    top: 15px;
     right: 10px;
     cursor: pointer;
-    position: absolute;
 }
 a {
     color: #ccc;
@@ -127,7 +124,7 @@ form {
     margin-bottom: 0;
 }
 .gridster {
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -135,6 +132,20 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 .grid_main{
-    height: 500px!important;
     width: 90%;
+    border: none!important;
+}
+.grid_form{
+    height: 500px;
+    border: 1px solid #ccc;
+}
+.container{
+    max-width: 960px!important;
+}
+.nav li{
+    background-color: #ddd;
+    margin: 20px;
+}
+.nav li a{
+    color: #000;
 }

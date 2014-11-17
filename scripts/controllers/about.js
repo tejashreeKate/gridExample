@@ -14,14 +14,17 @@ angular.module('dragDropExampleApp')
       'AngularJS',
       'Karma'
     ];
-    	$scope.gridsterOptions = {
+    	$scope.gridsterOptions1 = {
 			margins: [20, 20],
 			columns: 8,
-			maxRows:6,
+			maxRows:4,
 			draggable: {
-				handle: '.box'
+				enabled:true,
+				handle:'.box'
 			},
-			swapping:true
+			resizable:{
+				handles:[]
+			}
 		};
 		$scope.dashboards = {
 			'1': {
@@ -54,8 +57,9 @@ angular.module('dragDropExampleApp')
 				name: "New Widget",
 				sizeX: 2,
 				sizeY: 1,
-				size:'2'
+				size:'3'
 			});
+			console.log($scope.dashboard.widgets)
 		};
 		$scope.saveScreen = function(){
 			console.log($scope.dashboard)
@@ -80,8 +84,18 @@ angular.module('dragDropExampleApp')
 		$scope.remove = function(widget) {
 			$scope.dashboard.widgets.splice($scope.dashboard.widgets.indexOf(widget), 1);
 		};
-
-		$scope.openSettings = function(widget) {
+		
+		$scope.openSettings = function() {
+			$scope.tile ={};
+			$scope.tile = {
+				name: "New Widget",
+				sizeX: 2,
+				sizeY: 2,
+				size:'3'
+			};
+			var widget = $scope.tile;
+			console.log($scope.tile)
+			//widget = $scope.tile;
 			$modal.open({
 				scope: $scope,
 				templateUrl: 'views/partials/widget_settings.html',
@@ -99,6 +113,7 @@ angular.module('dragDropExampleApp')
 
 .controller('WidgetSettingsCtrl', ['$scope', '$timeout', '$rootScope', '$modalInstance', 'widget',
 	function($scope, $timeout, $rootScope, $modalInstance, widget) {
+		//console.log(widget)
 		$scope.widget = widget;
 		$scope.form = {
 			name: widget.name,
@@ -135,13 +150,15 @@ angular.module('dragDropExampleApp')
 		};
 
 		$scope.remove = function() {
+			console.log("remove")
 			$scope.dashboard.widgets.splice($scope.dashboard.widgets.indexOf(widget), 1);
 			$modalInstance.close();
 		};
 
 		$scope.submit = function() {
 			angular.extend(widget, $scope.form);
-
+			$scope.dashboard.widgets.push($scope.form);
+			console.log($scope.dashboard.widgets)
 			$modalInstance.close(widget);
 		};
 		$scope.changeSize = function (val){
